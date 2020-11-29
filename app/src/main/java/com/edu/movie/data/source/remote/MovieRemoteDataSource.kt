@@ -25,6 +25,6 @@ class MovieRemoteDataSource : MovieDataSource.Remote {
     }
 
     companion object {
-        val instance: MovieRemoteDataSource by lazy { Holder.INSTANCE }
+        val instance by lazy { Holder.INSTANCE }
     }
 }

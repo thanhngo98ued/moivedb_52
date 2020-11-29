@@ -14,15 +14,38 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:textViewStyle">@style/Theme.Movie.TextView</item>
     </style>
 
+    <!-- Customize TextView -->
+    <style name="Theme.Movie.TextView" parent="android:Widget.TextView">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="fontFamily">@font/roboto</item>
+    </style>
+    <!-- Customize them BottomNavigation -->
     <style name="Widget.App.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
     </style>
 
     <style name="ThemeOverlay.App.BottomNavigationView" parent="">
         <item name="colorPrimary">@android:color/white</item>
-        <item name="colorSurface">@color/dark_blue_gray</item>
         <item name="colorOnPrimary">@android:color/white</item>
+    </style>
+
+    <!-- Customize them tabLayout -->
+    <style name="TextAppearance.App.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+
+    <style name="Widget.App.TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.TabLayout</item>
+        <item name="tabTextAppearance">@style/TextAppearance.App.Button</item>
+    </style>
+
+    <style name="ThemeOverlay.App.TabLayout" parent="">
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorOnSurface">@android:color/white</item>
     </style>
 </resources>

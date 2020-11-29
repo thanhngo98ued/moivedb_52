@@ -13,7 +13,7 @@ class ParseJsonToModel {
                 getInt(MovieEntry.ID),
                 getString(MovieEntry.TITLE),
                 getString(MovieEntry.IMAGE_URL),
-                getInt(MovieEntry.RATE)
+                getDouble(MovieEntry.RATE)
             )
         }
         return null

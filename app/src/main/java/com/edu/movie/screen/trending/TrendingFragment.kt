@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.edu.movie.R
 import com.edu.movie.screen.trending.apdapter.TrendingPagerAdapter
 import com.edu.movie.utils.TrendingMoviesType
+import com.edu.movie.utils.upperString
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_trending.*
 
@@ -25,10 +26,10 @@ class TrendingFragment : Fragment() {
         viewPaperTrending.adapter = TrendingPagerAdapter(this)
         TabLayoutMediator(tabLayoutTrending, viewPaperTrending) { tab, position ->
             tab.text = when (position) {
-                TrendingMoviesType.TOP_RATED.ordinal -> getText(R.string.rate_category)
-                TrendingMoviesType.NOW_PLAYING.ordinal -> getText(R.string.now_play_category)
-                TrendingMoviesType.UP_COMING.ordinal -> getText(R.string.up_coming_category)
-                TrendingMoviesType.POPULAR.ordinal -> getText(R.string.popular_category)
+                TrendingMoviesType.TOP_RATED.ordinal -> upperString(R.string.top_rate)
+                TrendingMoviesType.NOW_PLAYING.ordinal -> upperString(R.string.now_playing)
+                TrendingMoviesType.UP_COMING.ordinal -> upperString(R.string.upcoming)
+                TrendingMoviesType.POPULAR.ordinal -> upperString(R.string.popular)
                 else -> null
             }
         }.attach()
