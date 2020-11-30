@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">Movie</string>
     <string name="movie">Movie</string>
+    <!-- BottomBar Navigation -->
     <string name="home">Home</string>
     <string name="trending">Trending</string>
     <string name="genres">Genres</string>
     <string name="favorite">Favorite</string>
+    <!-- Category Trending -->
+    <string name="popular">POPULAR</string>
+    <string name="rate">RATE</string>
+    <string name="now_play">NOW PLAY</string>
+    <string name="up_coming">UP COMING</string>
 </resources>

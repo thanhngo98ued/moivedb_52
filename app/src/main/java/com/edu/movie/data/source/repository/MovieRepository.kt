@@ -5,7 +5,7 @@ import com.edu.movie.data.source.MovieDataSource
 import com.edu.movie.data.source.local.MovieLocalDataSource
 import com.edu.movie.data.source.remote.MovieRemoteDataSource
 import com.edu.movie.data.source.remote.OnFetchDataJsonListener
-import com.edu.movie.utils.TrendingMoviesParams
+import com.edu.movie.utils.TrendingMoviesType
 
 class MovieRepository private constructor(
     private val local: MovieDataSource.Local,
@@ -21,9 +21,9 @@ class MovieRepository private constructor(
 
     fun getListMovieTrending(
         listener: OnFetchDataJsonListener<MutableList<MovieItem>>,
-        trendingMoviesParams: TrendingMoviesParams
+        trendingType: TrendingMoviesType
     ) {
-        remote.getDataTrending(listener, trendingMoviesParams)
+        remote.getDataTrending(listener, trendingType)
     }
 
     companion object {

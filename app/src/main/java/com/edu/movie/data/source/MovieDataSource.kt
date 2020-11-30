@@ -1,7 +1,7 @@
 package com.edu.movie.data.source
 
 import com.edu.movie.data.source.remote.OnFetchDataJsonListener
-import com.edu.movie.utils.TrendingMoviesParams
+import com.edu.movie.utils.TrendingMoviesType
 
 interface MovieDataSource {
     /**
@@ -15,7 +15,7 @@ interface MovieDataSource {
     interface Remote {
         fun <T> getDataTrending(
             listener: OnFetchDataJsonListener<T>,
-            trendingParams: TrendingMoviesParams
+            trendingType: TrendingMoviesType
         )
     }
 }
