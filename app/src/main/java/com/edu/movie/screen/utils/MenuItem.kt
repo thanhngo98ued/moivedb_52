@@ -1,3 +1,3 @@
-package com.edu.movie.screen.utils.adapter
+package com.edu.movie.screen.utils
 
 enum class MenuItem { HOME, TRENDING, GENRES, FAVORITE }

@@ -20,10 +20,11 @@ class MovieRepository private constructor(
     }
 
     fun getListMovieTrending(
+        page: Int,
+        trendingType: TrendingMoviesType,
         listener: OnFetchDataJsonListener<MutableList<MovieItem>>,
-        trendingType: TrendingMoviesType
     ) {
-        remote.getDataTrending(listener, trendingType)
+        remote.getDataTrending(page, trendingType, listener)
     }
 
     companion object {

@@ -14,8 +14,9 @@ interface MovieDataSource {
      */
     interface Remote {
         fun <T> getDataTrending(
+            page: Int,
+            trendingType: TrendingMoviesType,
             listener: OnFetchDataJsonListener<T>,
-            trendingType: TrendingMoviesType
         )
     }
 }
