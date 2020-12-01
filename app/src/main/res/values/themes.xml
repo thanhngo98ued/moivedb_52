@@ -13,6 +13,13 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:textViewStyle">@style/Theme.Movie.TextView</item>
+    </style>
+
+    <!-- Customize TextView -->
+    <style name="Theme.Movie.TextView" parent="android:Widget.TextView">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="fontFamily">@font/roboto</item>
     </style>
 
     <style name="Widget.App.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">

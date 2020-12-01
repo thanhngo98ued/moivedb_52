@@ -10,9 +10,9 @@ import com.edu.movie.R
 import com.edu.movie.screen.favorite.FavoriteFragment
 import com.edu.movie.screen.genres.GenresFragment
 import com.edu.movie.screen.home.HomeContentFragment
+import com.edu.movie.screen.main.homePage.ViewPagerContainerAdapter
 import com.edu.movie.screen.trending.TrendingFragment
 import com.edu.movie.screen.utils.MenuItem
-import com.edu.movie.screen.utils.adapter.ViewPagerContainerAdapter
 import kotlinx.android.synthetic.main.fragment_home_page.*
 
 class HomePageFragment private constructor() : Fragment() {

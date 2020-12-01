@@ -1,4 +1,4 @@
-package com.edu.movie.screen.utils.adapter
+package com.edu.movie.screen.main.homePage
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
