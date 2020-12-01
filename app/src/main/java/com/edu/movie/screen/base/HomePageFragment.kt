@@ -1,19 +1,16 @@
 package com.edu.movie.screen.base
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.edu.movie.R
+import com.edu.movie.screen.trending.TrendingFragment
+import com.edu.movie.utils.replaceFragment
 import kotlinx.android.synthetic.main.fragment_home_page.*
 
 class HomePageFragment private constructor() : Fragment() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +29,7 @@ class HomePageFragment private constructor() : Fragment() {
                 }
                 R.id.trendingPage -> {
                     textHeader.text = getText(R.string.trending)
+                    replaceFragment(TrendingFragment.newInstance(), R.id.homePageContainer)
                     true
                 }
                 R.id.genresPage -> {
