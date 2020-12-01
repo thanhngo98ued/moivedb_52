@@ -15,12 +15,13 @@ class MovieRemoteDataSource : MovieDataSource.Remote {
     }
 
     override fun <T> getDataTrending(
-        listener: OnFetchDataJsonListener<T>,
-        trendingType: TrendingMoviesType
+        page: Int,
+        trendingType: TrendingMoviesType,
+        listener: OnFetchDataJsonListener<T>
     ) {
         val stringUrl =
-            Constant.BASE_URL + trendingType.path + endPointParams + Constant.BASE_PAGE + 1
-        GetJsonFromUrl(listener, TypeModel.MOVIE_ITEM_TRENDING).execute(stringUrl)
+            Constant.BASE_URL + trendingType.path + endPointParams + Constant.BASE_PAGE + page
+        GetJsonFromUrl(TypeModel.MOVIE_ITEM_TRENDING, listener).execute(stringUrl)
     }
 
     companion object {

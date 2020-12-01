@@ -5,8 +5,8 @@ import com.edu.movie.data.source.remote.OnFetchDataJsonListener
 import com.edu.movie.utils.TypeModel
 
 class GetJsonFromUrl<T> constructor(
-    private val jsonListener: OnFetchDataJsonListener<T>,
-    private val typeMode: TypeModel
+    private val typeMode: TypeModel,
+    private val jsonListener: OnFetchDataJsonListener<T>
 ) : AsyncTask<String?, Unit?, String>() {
 
     private var exception: Exception? = null
