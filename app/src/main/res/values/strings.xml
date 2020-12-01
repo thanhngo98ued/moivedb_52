@@ -6,9 +6,13 @@
     <string name="trending">Trending</string>
     <string name="genres">Genres</string>
     <string name="favorite">Favorite</string>
-    <!-- Category Trending -->
-    <string name="popular">POPULAR</string>
-    <string name="rate">RATE</string>
-    <string name="now_play">NOW PLAY</string>
-    <string name="up_coming">UP COMING</string>
+    <string name="popular_category">POPULAR</string>
+    <string name="rate_category">RATE</string>
+    <string name="now_play_category">NOW PLAY</string>
+    <string name="up_coming_category">UP COMING</string>
+    <string name="popular">Popular</string>
+    <string name="top_rate">Top Rate</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="now_playing">Now Playing</string>
+    <string name="movie_name">Movie Name</string>
 </resources>

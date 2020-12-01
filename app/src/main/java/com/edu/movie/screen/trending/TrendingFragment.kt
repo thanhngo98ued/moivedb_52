@@ -25,10 +25,10 @@ class TrendingFragment : Fragment() {
         viewPaperTrending.adapter = TrendingPagerAdapter(this)
         TabLayoutMediator(tabLayoutTrending, viewPaperTrending) { tab, position ->
             tab.text = when (position) {
-                TrendingMoviesType.TOP_RATED.ordinal -> getText(R.string.rate)
-                TrendingMoviesType.NOW_PLAYING.ordinal -> getText(R.string.now_play)
-                TrendingMoviesType.UP_COMING.ordinal -> getText(R.string.up_coming)
-                TrendingMoviesType.POPULAR.ordinal -> getText(R.string.popular)
+                TrendingMoviesType.TOP_RATED.ordinal -> getText(R.string.rate_category)
+                TrendingMoviesType.NOW_PLAYING.ordinal -> getText(R.string.now_play_category)
+                TrendingMoviesType.UP_COMING.ordinal -> getText(R.string.up_coming_category)
+                TrendingMoviesType.POPULAR.ordinal -> getText(R.string.popular_category)
                 else -> null
             }
         }.attach()
