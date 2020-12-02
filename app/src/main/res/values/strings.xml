@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Movie</string>
     <string name="movie">Movie</string>
-    <!-- BottomBar Navigation -->
+    <string name="percent">%1$s\%%</string>
     <string name="home">Home</string>
     <string name="trending">Trending</string>
     <string name="genres">Genres</string>
@@ -14,5 +14,4 @@
     <string name="top_rate">Top Rate</string>
     <string name="upcoming">Upcoming</string>
     <string name="now_playing">Now Playing</string>
-    <string name="movie_name">Movie Name</string>
 </resources>

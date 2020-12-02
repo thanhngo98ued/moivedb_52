@@ -28,41 +28,27 @@
 
     <TextView
         android:id="@+id/textMovieName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_6"
-        android:fontFamily="@font/roboto"
-        android:text="@string/movie_name"
-        android:textColor="@android:color/white"
+        android:maxLines="3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_constraintWidth_percent="0.7" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/ic_rate"
         android:elevation="@dimen/dp_10"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="@id/cardView"
         app:layout_constraintStart_toStartOf="@id/cardView">
-
-        <ImageView
-            android:id="@+id/imageRate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@null"
-            android:src="@drawable/ic_rate"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/sp_15"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:textSize="@dimen/sp_15" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

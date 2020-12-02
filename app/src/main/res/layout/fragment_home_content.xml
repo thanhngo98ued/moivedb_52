@@ -43,10 +43,10 @@
             android:layout_marginTop="@dimen/dp_20"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintDimensionRatio="411:229"
+            app:layout_constraintDimensionRatio="411:260"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textPopular"
-            tools:listitem="@layout/movies_item_linear_horizontal" />
+            tools:listitem="@layout/item_movie_horizontal" />
 
         <TextView
             android:id="@+id/textTopRate"
@@ -69,11 +69,11 @@
             android:layout_marginTop="@dimen/dp_20"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintDimensionRatio="411:255"
+            app:layout_constraintDimensionRatio="411:260"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textTopRate"
-            tools:listitem="@layout/movies_item_linear_horizontal" />
+            tools:listitem="@layout/item_movie_horizontal" />
 
         <TextView
             android:id="@+id/textUpcoming"
@@ -96,11 +96,11 @@
             android:layout_marginTop="@dimen/dp_20"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintDimensionRatio="411:255"
+            app:layout_constraintDimensionRatio="411:260"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textUpcoming"
-            tools:listitem="@layout/movies_item_linear_horizontal" />
+            tools:listitem="@layout/item_movie_horizontal" />
 
         <TextView
             android:id="@+id/textNowPlaying"
@@ -123,10 +123,10 @@
             android:layout_marginTop="@dimen/dp_20"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintDimensionRatio="411:255"
+            app:layout_constraintDimensionRatio="411:260"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textNowPlaying"
-            tools:listitem="@layout/movies_item_linear_horizontal" />
+            tools:listitem="@layout/item_movie_horizontal" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
