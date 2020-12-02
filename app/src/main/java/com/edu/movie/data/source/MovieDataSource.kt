@@ -18,5 +18,7 @@ interface MovieDataSource {
             trendingType: TrendingMoviesType,
             listener: OnFetchDataJsonListener<T>,
         )
+
+        fun <T> getDataSlider(listener: OnFetchDataJsonListener<T>)
     }
 }

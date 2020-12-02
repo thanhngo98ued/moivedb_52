@@ -1,11 +1,11 @@
-package com.edu.movie.screen.commomView.movieItem.adapter
+package com.edu.movie.screen.commonView.movieItem.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.edu.movie.R
 import com.edu.movie.data.model.MovieItem
-import com.edu.movie.screen.commomView.movieItem.adapter.MovieViewHolder
+import com.edu.movie.screen.commonView.movieItem.adapter.MovieViewHolder
 
 class MoviesHorizontalAdapter : RecyclerView.Adapter<MovieViewHolder>() {
 
