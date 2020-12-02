@@ -21,7 +21,7 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="fontFamily">@font/roboto</item>
     </style>
-
+    <!-- Customize them BottomNavigation -->
     <style name="Widget.App.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
         <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
     </style>

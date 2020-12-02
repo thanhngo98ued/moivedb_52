@@ -4,20 +4,20 @@
         android:id="@+id/homePage"
         android:enabled="true"
         android:icon="@drawable/ic_home"
-        android:title="@string/home"/>
+        android:title="@string/home" />
     <item
         android:id="@+id/trendingPage"
         android:enabled="true"
         android:icon="@drawable/ic_trending"
-        android:title="@string/trending"/>
+        android:title="@string/trending" />
     <item
         android:id="@+id/genresPage"
         android:enabled="true"
         android:icon="@drawable/ic_genres"
-        android:title="@string/genres"/>
+        android:title="@string/genres" />
     <item
         android:id="@+id/favoritePage"
         android:enabled="true"
         android:icon="@drawable/ic_heart"
-        android:title="@string/favorite"/>
+        android:title="@string/favorite" />
 </menu>
