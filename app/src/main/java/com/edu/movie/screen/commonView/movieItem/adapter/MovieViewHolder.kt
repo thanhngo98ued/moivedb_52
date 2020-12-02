@@ -1,4 +1,4 @@
-package com.edu.movie.screen.commomView.movieItem.adapter
+package com.edu.movie.screen.commonView.movieItem.adapter
 
 import android.os.AsyncTask
 import android.view.View

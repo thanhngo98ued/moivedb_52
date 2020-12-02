@@ -1,5 +1,6 @@
 package com.edu.movie.data.source.remote.fetchjson
 
+import com.edu.movie.data.model.ItemMovieSliderEntry
 import com.edu.movie.data.model.MovieEntry
 import com.edu.movie.utils.TypeModel
 import org.json.JSONArray
@@ -39,6 +40,12 @@ class ParseDataWithJson {
                         typeModel
                     )
                 }
+                TypeModel.MOVIE_ITEM_SLIDER -> {
+                    parseJsonToList(
+                        JSONObject(jsonString).getJSONArray(ItemMovieSliderEntry.LIST_MOVIE),
+                        typeModel
+                    )
+                }
             }
         } catch (e: Exception) {
             e.printStackTrace()
@@ -51,6 +58,9 @@ class ParseDataWithJson {
         when (typeModel) {
             TypeModel.MOVIE_ITEM_TRENDING -> {
                 return parseJsonToModel.parseJsonToMovieItem(jsonObject)
+            }
+            TypeModel.MOVIE_ITEM_SLIDER -> {
+                return parseJsonToModel.parseJsonToMovieItemSlider(jsonObject)
             }
         }
     }

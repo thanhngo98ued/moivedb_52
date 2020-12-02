@@ -27,6 +27,10 @@ class MovieRepository private constructor(
         remote.getDataTrending(page, trendingType, listener)
     }
 
+    fun getListMovieSlider(listener: OnFetchDataJsonListener<MutableList<MovieItem>>) {
+        remote.getDataSlider(listener)
+    }
+
     companion object {
         val instance: MovieRepository by lazy { Holder.INSTANCE }
     }

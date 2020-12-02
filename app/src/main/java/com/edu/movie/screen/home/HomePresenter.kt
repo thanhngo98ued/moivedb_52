@@ -15,6 +15,7 @@ class HomePresenter(private val repository: MovieRepository) : BasePresenter<Vie
         for (i in 0..3) {
             getMovie(TrendingMoviesType.values()[i])
         }
+        getSliderMovie()
     }
 
     override fun onStop() {
@@ -38,5 +39,17 @@ class HomePresenter(private val repository: MovieRepository) : BasePresenter<Vie
                     view?.onError(exception)
                 }
             })
+    }
+
+    private fun getSliderMovie() {
+        repository.getListMovieSlider(object : OnFetchDataJsonListener<MutableList<MovieItem>> {
+            override fun onSuccess(data: MutableList<MovieItem>) {
+                view?.getImageSliderSuccess(data)
+            }
+
+            override fun onError(exception: Exception?) {
+                view?.onError(exception)
+            }
+        })
     }
 }

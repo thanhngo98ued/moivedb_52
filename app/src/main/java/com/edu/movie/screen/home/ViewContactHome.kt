@@ -8,5 +8,7 @@ interface ViewContactHome{
         fun getMovieSuccess(listMovies: MutableList<MovieItem>, trendingMoviesType: TrendingMoviesType)
 
         fun onError(exception: Exception?)
+
+        fun getImageSliderSuccess(listMovies: MutableList<MovieItem>)
     }
 }

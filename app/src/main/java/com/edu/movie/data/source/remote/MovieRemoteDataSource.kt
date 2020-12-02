@@ -20,11 +20,20 @@ class MovieRemoteDataSource : MovieDataSource.Remote {
         listener: OnFetchDataJsonListener<T>
     ) {
         val stringUrl =
-            Constant.BASE_URL + trendingType.path + endPointParams + Constant.BASE_PAGE + page
+            Constant.BASE_URL + MEDIA_TYPE + trendingType.path + endPointParams + Constant.BASE_PAGE + page
         GetJsonFromUrl(TypeModel.MOVIE_ITEM_TRENDING, listener).execute(stringUrl)
+    }
+
+    override fun <T> getDataSlider(listener: OnFetchDataJsonListener<T>) {
+        val stringUrl =
+            Constant.BASE_URL + TRENDING_TOP + MEDIA_TYPE + TIME_WINDOW + endPointParams
+        GetJsonFromUrl(TypeModel.MOVIE_ITEM_SLIDER, listener).execute(stringUrl)
     }
 
     companion object {
         val instance by lazy { Holder.INSTANCE }
+        private const val TRENDING_TOP = "trending/"
+        private const val MEDIA_TYPE = "movie/"
+        private const val TIME_WINDOW = "day"
     }
 }

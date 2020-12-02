@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.edu.movie.R
 import com.edu.movie.data.model.MovieItem
 import com.edu.movie.data.source.repository.MovieRepository
-import com.edu.movie.screen.commomView.movieItem.adapter.MoviesHorizontalAdapter
+import com.edu.movie.screen.commonView.movieItem.adapter.MoviesHorizontalAdapter
 import com.edu.movie.utils.TrendingMoviesType
 import kotlinx.android.synthetic.main.fragment_home_content.*
 
@@ -49,6 +49,8 @@ class HomeContentFragment : Fragment(), ViewContactHome.View {
     override fun onError(exception: Exception?) {
         Toast.makeText(context, exception?.message, Toast.LENGTH_LONG).show()
     }
+
+    override fun getImageSliderSuccess(listMovies: MutableList<MovieItem>) {}
 
     private fun initRecyclerView() {
         applyRecyclerView(recyclerViewPopular, popularAdapter)
