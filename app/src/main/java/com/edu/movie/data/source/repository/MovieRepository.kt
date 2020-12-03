@@ -1,12 +1,12 @@
 package com.edu.movie.data.source.repository
 
-import com.edu.movie.data.model.ItemMovieSlider
-import com.edu.movie.data.model.MovieItem
+import com.edu.movie.data.model.*
 import com.edu.movie.data.source.MovieDataSource
 import com.edu.movie.data.source.local.MovieLocalDataSource
 import com.edu.movie.data.source.remote.MovieRemoteDataSource
 import com.edu.movie.data.source.remote.OnFetchDataJsonListener
 import com.edu.movie.utils.TrendingMoviesType
+import com.edu.movie.utils.TypeEndPointMovieDetails
 
 class MovieRepository private constructor(
     private val local: MovieDataSource.Local,
@@ -23,7 +23,7 @@ class MovieRepository private constructor(
     fun getListMovieTrending(
         page: Int,
         trendingType: TrendingMoviesType,
-        listener: OnFetchDataJsonListener<MutableList<MovieItem>>,
+        listener: OnFetchDataJsonListener<MutableList<MovieItem>>
     ) {
         remote.getDataTrending(page, trendingType, listener)
     }
@@ -32,7 +32,23 @@ class MovieRepository private constructor(
         remote.getDataSlider(listener)
     }
 
+    fun getMovieDetails(id: Int, listener: OnFetchDataJsonListener<MovieDetails>) {
+        remote.getDataInMovieDetails(id, TypeEndPointMovieDetails.MOVIE_DETAILS, listener)
+    }
+
+    fun getListCastsInMovieDetails(idMovieDetails: Int, listener: OnFetchDataJsonListener<List<Cast>>) {
+        remote.getDataInMovieDetails(idMovieDetails, TypeEndPointMovieDetails.CASTS, listener)
+    }
+
+    fun getListVideosInMovieDetails(idMovieDetails: Int, listener: OnFetchDataJsonListener<List<VideoYoutube>>) {
+        remote.getDataInMovieDetails(idMovieDetails, TypeEndPointMovieDetails.VIDEO_YOUTUBE, listener)
+    }
+
+    fun getListMovieRecommendations(idMovieDetails: Int, listener: OnFetchDataJsonListener<List<MovieItem>>) {
+        remote.getDataInMovieDetails(idMovieDetails, TypeEndPointMovieDetails.RECOMMENDATIONS, listener)
+    }
+
     companion object {
-        val instance: MovieRepository by lazy { Holder.INSTANCE }
+        val instance by lazy { Holder.INSTANCE }
     }
 }
