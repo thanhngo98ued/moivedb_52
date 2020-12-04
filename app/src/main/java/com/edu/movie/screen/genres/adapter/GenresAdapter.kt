@@ -6,8 +6,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.edu.movie.R
 import com.edu.movie.data.model.Genres
 
-class GenresAdapter(private val genres: List<Genres>) :
+class GenresAdapter() :
     RecyclerView.Adapter<ItemGenresViewHolder>() {
+
+    private var onMoreClickListener: ((Int) -> Unit)? = null
+    private var onItemMoviesClickListener: ((Int) -> Unit)? = null
+    private var genres = listOf<Genres>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemGenresViewHolder {
         return ItemGenresViewHolder(
@@ -16,8 +20,23 @@ class GenresAdapter(private val genres: List<Genres>) :
     }
 
     override fun onBindViewHolder(holder: ItemGenresViewHolder, position: Int) {
+        holder.registerMoreClickListener(onMoreClickListener)
+        holder.registerItemMoviesClickListener(onItemMoviesClickListener)
         holder.binData(genres[position])
     }
 
     override fun getItemCount() = genres.size
+
+    fun registerMoreClickListener(onMoreClickListener: ((Int) -> Unit)?) {
+        this.onMoreClickListener = onMoreClickListener
+    }
+
+    fun registerItemMovieClickListener(onItemMovieClickListener: ((Int) -> Unit)) {
+        onItemMoviesClickListener = onItemMovieClickListener
+    }
+
+    fun registerData(genres: List<Genres>) {
+        this.genres = genres
+        notifyDataSetChanged()
+    }
 }

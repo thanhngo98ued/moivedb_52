@@ -69,6 +69,10 @@ class MovieRepository private constructor(
         remote.getDataGenres(listener)
     }
 
+    fun getMoviesByIdGenre(id: Int, page: Int, listener: OnFetchDataJsonListener<List<MovieItem>>) {
+        remote.getMoviesByIdGenre(id, page, listener)
+    }
+
     companion object {
         val instance by lazy { Holder.INSTANCE }
     }

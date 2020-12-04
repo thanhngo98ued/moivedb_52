@@ -64,7 +64,7 @@ class HomeContentFragment : Fragment(), ViewContactHome.View {
 
     override fun getImageSliderSuccess(listMovies: MutableList<ItemMovieSlider>) {
         moviesSlider = listMovies
-        applySliderViewPage(viewPagerMovie)
+        viewPagerMovie?.let { applySliderViewPage(viewPagerMovie) }
     }
 
     private fun initRecyclerView() {
