@@ -1,9 +1,6 @@
 package com.edu.movie.data.source.remote.fetchjson
 
-import com.edu.movie.data.model.CastEntry
-import com.edu.movie.data.model.ItemMovieSliderEntry
-import com.edu.movie.data.model.MovieEntry
-import com.edu.movie.data.model.VideoYoutubeEntry
+import com.edu.movie.data.model.*
 import com.edu.movie.utils.TypeModel
 import org.json.JSONArray
 import org.json.JSONObject
@@ -71,8 +68,14 @@ class ParseDataWithJson {
                 TypeModel.COMPANY -> {
                     parseJsonToList(JSONArray(jsonString), typeModel)
                 }
-                TypeModel.GENRES -> {
+                TypeModel.GENRES_DETAIL_MOVIE -> {
                     parseJsonToList(JSONArray(jsonString), typeModel)
+                }
+                TypeModel.GENRES -> {
+                    parseJsonToList(
+                        JSONObject(jsonString).getJSONArray(GenresEntry.LIST_GENRES),
+                        typeModel
+                    )
                 }
             }
         } catch (e: Exception) {
@@ -99,11 +102,14 @@ class ParseDataWithJson {
             TypeModel.CAST -> {
                 parseJsonToModel.parseJsonToCast(jsonObject)
             }
-            TypeModel.GENRES -> {
+            TypeModel.GENRES_DETAIL_MOVIE -> {
                 parseJsonToModel.parseJsonToGenres(jsonObject)
             }
             TypeModel.COMPANY -> {
                 parseJsonToModel.parseJsonToCompany(jsonObject)
+            }
+            TypeModel.GENRES -> {
+                parseJsonToModel.parseJsonToGenres(jsonObject)
             }
         }
     }

@@ -6,6 +6,7 @@ enum class TypeModel {
     MOVIE_DETAILS,
     CAST,
     VIDEO_YOUTUBE,
-    GENRES,
-    COMPANY
+    GENRES_DETAIL_MOVIE,
+    COMPANY,
+    GENRES
 }

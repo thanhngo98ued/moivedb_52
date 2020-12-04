@@ -57,10 +57,16 @@ class MovieRemoteDataSource : MovieDataSource.Remote {
         }
     }
 
+    override fun <T> getDataGenres(listener: OnFetchDataJsonListener<T>) {
+        val stringUrl = Constant.BASE_URL + GENRES_URL + endPointParams
+        GetJsonFromUrl(TypeModel.GENRES, listener).execute(stringUrl)
+    }
+
     companion object {
         val instance by lazy { Holder.INSTANCE }
         private const val TRENDING_TOP = "trending/"
         private const val MEDIA_TYPE = "movie/"
         private const val TIME_WINDOW = "day"
+        private const val GENRES_URL = "genre/movie/list"
     }
 }
