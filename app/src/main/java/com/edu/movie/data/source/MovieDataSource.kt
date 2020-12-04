@@ -29,5 +29,7 @@ interface MovieDataSource {
       )
 
       fun <T> getDataGenres(listener: OnFetchDataJsonListener<T>)
+
+      fun <T> getMoviesByIdGenre(idGenre: Int, page: Int, listener: OnFetchDataJsonListener<T>)
   }
 }

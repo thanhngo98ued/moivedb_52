@@ -21,7 +21,10 @@ class MovieRemoteDataSource : MovieDataSource.Remote {
         listener: OnFetchDataJsonListener<T>
     ) {
         val stringUrl =
-            Constant.BASE_URL + MEDIA_TYPE + trendingType.path + endPointParams + Constant.BASE_PAGE + page
+            Constant.BASE_URL + MEDIA_TYPE +
+                    trendingType.path +
+                    endPointParams +
+                    Constant.BASE_PAGE + page
         GetJsonFromUrl(TypeModel.MOVIE_ITEM_TRENDING, listener).execute(stringUrl)
     }
 
@@ -60,6 +63,20 @@ class MovieRemoteDataSource : MovieDataSource.Remote {
     override fun <T> getDataGenres(listener: OnFetchDataJsonListener<T>) {
         val stringUrl = Constant.BASE_URL + GENRES_URL + endPointParams
         GetJsonFromUrl(TypeModel.GENRES, listener).execute(stringUrl)
+    }
+
+    override fun <T> getMoviesByIdGenre(
+        idGenre: Int,
+        page: Int,
+        listener: OnFetchDataJsonListener<T>
+    ) {
+        val stringUrl =
+            Constant.BASE_URL + Constant.BASE_DISCOVER +
+                    endPointParams +
+                    Constant.SORT_BY_POPULAR +
+                    Constant.BASE_PAGE + page +
+                    Constant.WITH_GENRES + idGenre
+        GetJsonFromUrl(TypeModel.MOVIE_ITEM_TRENDING, listener).execute(stringUrl)
     }
 
     companion object {

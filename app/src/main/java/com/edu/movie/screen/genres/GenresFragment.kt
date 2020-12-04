@@ -10,9 +10,14 @@ import com.edu.movie.R
 import com.edu.movie.data.model.Genres
 import com.edu.movie.data.source.repository.MovieRepository
 import com.edu.movie.screen.genres.adapter.GenresAdapter
+import com.edu.movie.screen.moviedetails.MovieDetailsFragment
+import com.edu.movie.utils.addFragment
 import kotlinx.android.synthetic.main.fragment_genres.*
+import kotlinx.android.synthetic.main.item_genres.*
 
 class GenresFragment : Fragment(), ViewContactGenres.View {
+
+    private val genreAdapter by lazy { GenresAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,11 +28,13 @@ class GenresFragment : Fragment(), ViewContactGenres.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initRecyclerView()
         initData()
+        onClickMoreItem()
     }
 
     override fun getGenresOnSuccess(genres: List<Genres>) {
-        recyclerViewGenres.adapter = GenresAdapter(genres)
+        genreAdapter.registerData(genres)
     }
 
     override fun onError(exception: Exception?) {
@@ -39,6 +46,25 @@ class GenresFragment : Fragment(), ViewContactGenres.View {
             setView(this@GenresFragment)
             onStart()
         }
+    }
+
+    private fun initRecyclerView() {
+        recyclerViewGenres.apply {
+            setHasFixedSize(true)
+            adapter = genreAdapter
+        }
+    }
+
+    private fun onClickMoreItem() {
+        genreAdapter.apply {
+            registerMoreClickListener {
+                addFragment(DetailsGenresFragment.newInstance(it), R.id.container)
+            }
+            registerItemMovieClickListener {
+                addFragment(MovieDetailsFragment.newInstance(it), R.id.container)
+            }
+        }
+
     }
 
     companion object {
