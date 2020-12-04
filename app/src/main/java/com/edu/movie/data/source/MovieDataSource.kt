@@ -14,18 +14,20 @@ interface MovieDataSource {
    *  Remote
    */
   interface Remote {
-    fun <T> getDataTrending(
-        page: Int,
-        trendingType: TrendingMoviesType,
-        listener: OnFetchDataJsonListener<T>
-    )
+      fun <T> getDataTrending(
+          page: Int,
+          trendingType: TrendingMoviesType,
+          listener: OnFetchDataJsonListener<T>
+      )
 
-    fun <T> getDataSlider(listener: OnFetchDataJsonListener<T>)
+      fun <T> getDataSlider(listener: OnFetchDataJsonListener<T>)
 
-    fun <T> getDataInMovieDetails(
-        idMovie: Int,
-        typeEndPoint: TypeEndPointMovieDetails,
-        listener: OnFetchDataJsonListener<T>
-    )
+      fun <T> getDataInMovieDetails(
+          idMovie: Int,
+          typeEndPoint: TypeEndPointMovieDetails,
+          listener: OnFetchDataJsonListener<T>
+      )
+
+      fun <T> getDataGenres(listener: OnFetchDataJsonListener<T>)
   }
 }

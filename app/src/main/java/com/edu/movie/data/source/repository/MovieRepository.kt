@@ -36,16 +36,37 @@ class MovieRepository private constructor(
         remote.getDataInMovieDetails(id, TypeEndPointMovieDetails.MOVIE_DETAILS, listener)
     }
 
-    fun getListCastsInMovieDetails(idMovieDetails: Int, listener: OnFetchDataJsonListener<List<Cast>>) {
+    fun getListCastsInMovieDetails(
+        idMovieDetails: Int,
+        listener: OnFetchDataJsonListener<List<Cast>>
+    ) {
         remote.getDataInMovieDetails(idMovieDetails, TypeEndPointMovieDetails.CASTS, listener)
     }
 
-    fun getListVideosInMovieDetails(idMovieDetails: Int, listener: OnFetchDataJsonListener<List<VideoYoutube>>) {
-        remote.getDataInMovieDetails(idMovieDetails, TypeEndPointMovieDetails.VIDEO_YOUTUBE, listener)
+    fun getListVideosInMovieDetails(
+        idMovieDetails: Int,
+        listener: OnFetchDataJsonListener<List<VideoYoutube>>
+    ) {
+        remote.getDataInMovieDetails(
+            idMovieDetails,
+            TypeEndPointMovieDetails.VIDEO_YOUTUBE,
+            listener
+        )
     }
 
-    fun getListMovieRecommendations(idMovieDetails: Int, listener: OnFetchDataJsonListener<List<MovieItem>>) {
-        remote.getDataInMovieDetails(idMovieDetails, TypeEndPointMovieDetails.RECOMMENDATIONS, listener)
+    fun getListMovieRecommendations(
+        idMovieDetails: Int,
+        listener: OnFetchDataJsonListener<List<MovieItem>>
+    ) {
+        remote.getDataInMovieDetails(
+            idMovieDetails,
+            TypeEndPointMovieDetails.RECOMMENDATIONS,
+            listener
+        )
+    }
+
+    fun getListGenres(listener: OnFetchDataJsonListener<List<Genres>>) {
+        remote.getDataGenres(listener)
     }
 
     companion object {
