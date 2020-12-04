@@ -4,11 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.edu.movie.R
+import com.edu.movie.data.model.Cast
+import com.edu.movie.data.model.MovieDetails
+import com.edu.movie.data.model.MovieItem
+import com.edu.movie.data.model.VideoYoutube
+import com.edu.movie.data.source.repository.MovieRepository
 
-class MovieDetailsFragment : Fragment() {
+class MovieDetailsFragment : Fragment(), MovieDetailsContact.View {
     private var idMovieDetails: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +29,45 @@ class MovieDetailsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_movie_details, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initPresenter()
+    }
+
+    override fun loadContentMovieOnSuccess(movieDetails: MovieDetails) {
+        Toast.makeText(context, movieDetails.toString(), Toast.LENGTH_SHORT).show()
+    }
+
+    override fun loadCastsOnSuccess(casts: List<Cast>) {
+        Toast.makeText(context, casts.toString(), Toast.LENGTH_SHORT).show()
+    }
+
+    override fun loadVideoTrailerOnSuccess(video: VideoYoutube?) {
+        Toast.makeText(context, video.toString(), Toast.LENGTH_SHORT).show()
+
+    }
+
+    override fun loadMoviesRecommendations(movies: List<MovieItem>) {
+        Toast.makeText(context, movies.toString(), Toast.LENGTH_SHORT).show()
+    }
+
+
+    override fun onError(exception: Exception?) {
+        Toast.makeText(context, exception?.message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun initPresenter() {
+        MovieDetailsPresenter(MovieRepository.instance).apply {
+            setView(this@MovieDetailsFragment)
+            idMovieDetails?.let {
+                getMovieDetails(it)
+                getCastsInMovieDetails(it)
+                getVideoTrailer(it)
+                getListMovieRecommendations(it)
+            }
+        }
     }
 
     companion object {
