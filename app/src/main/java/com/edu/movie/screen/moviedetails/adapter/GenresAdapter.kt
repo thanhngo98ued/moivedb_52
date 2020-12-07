@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.item_movie_genre.view.*
 class GenresAdapter : RecyclerView.Adapter<ItemGenreInMovieDetails>() {
 
     private val genres = mutableListOf<Genres>()
-    private var onItemGenreClickListener: (Int) -> Unit = {}
+    private var onItemGenreClickListener: (Int, String) -> Unit = { _, _ -> }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ItemGenreInMovieDetails(
         LayoutInflater.from(parent.context).inflate(
@@ -31,23 +31,24 @@ class GenresAdapter : RecyclerView.Adapter<ItemGenreInMovieDetails>() {
         notifyDataSetChanged()
     }
 
-    fun registerItemGenreClickListener(onItemGenreClickListener: (Int) -> Unit) {
+    fun registerItemGenreClickListener(onItemGenreClickListener: (Int, String) -> Unit) {
         this.onItemGenreClickListener = onItemGenreClickListener
     }
 }
 
 class ItemGenreInMovieDetails(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    private var onItemGenreClickListener: (Int) -> Unit = {}
+    private var onItemGenreClickListener: (Int, String) -> Unit = { _, _ -> }
 
     fun bindData(genre: Genres) {
         itemView.textViewGenresInMovie.text = genre.name
         itemView.setOnClickListener {
-            genre.id?.let { onItemGenreClickListener(it) }
+            if (genre.id != null && genre.name != null)
+                onItemGenreClickListener(genre.id, genre.name)
         }
     }
 
-    fun registerOnItemGenreClickListener(onItemGenreClickListener: (Int) -> Unit) {
+    fun registerOnItemGenreClickListener(onItemGenreClickListener: (Int, String) -> Unit) {
         this.onItemGenreClickListener = onItemGenreClickListener
     }
 }

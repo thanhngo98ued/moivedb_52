@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.item_genres.view.*
 class ItemGenresViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
     ViewContactItemGenres.View {
 
-    private var onItemMoreClickListener: ((Int) -> Unit)? = null
+    private var onItemMoreClickListener: ((Int, String) -> Unit)? = null
     private val adapterMovieGenres by lazy { MoviesHorizontalAdapter() }
 
     override fun getMoviesOnSuccess(movies: List<MovieItem>) {
@@ -25,7 +25,7 @@ class ItemGenresViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
         Toast.makeText(itemView.context, exception?.message, Toast.LENGTH_SHORT).show()
     }
 
-    fun registerMoreClickListener(onItemMoreClickListener: ((Int) -> Unit)?) {
+    fun registerMoreClickListener(onItemMoreClickListener: ((Int, String) -> Unit)?) {
         this.onItemMoreClickListener = onItemMoreClickListener
     }
 
@@ -40,13 +40,13 @@ class ItemGenresViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
             adapter = adapterMovieGenres
         }
 
-        genres.id?.let { id ->
+        if (genres.id != null && genres.name != null) {
             itemView.linearLayoutGenres.setOnClickListener {
-                onItemMoreClickListener?.invoke(id)
+                onItemMoreClickListener?.invoke(genres.id, genres.name)
             }
             ItemGenresPresenter(MovieRepository.instance).apply {
                 setView(this@ItemGenresViewHolder)
-                getMoviesByIdGenre(id)
+                getMoviesByIdGenre(genres.id)
             }
         }
     }

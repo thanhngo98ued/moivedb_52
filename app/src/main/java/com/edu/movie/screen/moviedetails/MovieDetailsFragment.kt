@@ -18,7 +18,7 @@ import com.edu.movie.data.model.MovieItem
 import com.edu.movie.data.model.VideoYoutube
 import com.edu.movie.data.source.repository.MovieRepository
 import com.edu.movie.screen.commonView.movieItem.adapter.MoviesHorizontalAdapter
-import com.edu.movie.screen.genres.DetailsGenresFragment
+import com.edu.movie.screen.genres.details.DetailsGenresFragment
 import com.edu.movie.screen.moviedetails.adapter.CastsAdapter
 import com.edu.movie.screen.moviedetails.adapter.GenresAdapter
 import com.edu.movie.utils.Constant
@@ -93,8 +93,11 @@ class MovieDetailsFragment : Fragment(), MovieDetailsContact.View {
         recyclerViewGenresMovieDetails.apply {
             setHasFixedSize(false)
             adapter = adapterGenres.apply {
-                registerItemGenreClickListener {
-                    addFragment(DetailsGenresFragment.newInstance(it), R.id.container)
+                registerItemGenreClickListener { idGenre, nameGenre ->
+                    addFragment(
+                        DetailsGenresFragment.newInstance(idGenre, nameGenre),
+                        R.id.container
+                    )
                 }
             }
         }
