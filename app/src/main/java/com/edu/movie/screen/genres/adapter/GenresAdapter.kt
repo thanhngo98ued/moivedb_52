@@ -9,7 +9,7 @@ import com.edu.movie.data.model.Genres
 class GenresAdapter() :
     RecyclerView.Adapter<ItemGenresViewHolder>() {
 
-    private var onMoreClickListener: ((Int) -> Unit)? = null
+    private var onMoreClickListener: ((Int, String) -> Unit)? = null
     private var onItemMoviesClickListener: ((Int) -> Unit)? = null
     private var genres = listOf<Genres>()
 
@@ -27,7 +27,7 @@ class GenresAdapter() :
 
     override fun getItemCount() = genres.size
 
-    fun registerMoreClickListener(onMoreClickListener: ((Int) -> Unit)?) {
+    fun registerMoreClickListener(onMoreClickListener: ((Int, String) -> Unit)?) {
         this.onMoreClickListener = onMoreClickListener
     }
 

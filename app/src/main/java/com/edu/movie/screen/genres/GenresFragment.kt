@@ -10,6 +10,7 @@ import com.edu.movie.R
 import com.edu.movie.data.model.Genres
 import com.edu.movie.data.source.repository.MovieRepository
 import com.edu.movie.screen.genres.adapter.GenresAdapter
+import com.edu.movie.screen.genres.details.DetailsGenresFragment
 import com.edu.movie.screen.moviedetails.MovieDetailsFragment
 import com.edu.movie.utils.addFragment
 import kotlinx.android.synthetic.main.fragment_genres.*
@@ -57,14 +58,13 @@ class GenresFragment : Fragment(), ViewContactGenres.View {
 
     private fun onClickMoreItem() {
         genreAdapter.apply {
-            registerMoreClickListener {
-                addFragment(DetailsGenresFragment.newInstance(it), R.id.container)
+            registerMoreClickListener { id, name ->
+                addFragment(DetailsGenresFragment.newInstance(id, name), R.id.container)
             }
             registerItemMovieClickListener {
                 addFragment(MovieDetailsFragment.newInstance(it), R.id.container)
             }
         }
-
     }
 
     companion object {
