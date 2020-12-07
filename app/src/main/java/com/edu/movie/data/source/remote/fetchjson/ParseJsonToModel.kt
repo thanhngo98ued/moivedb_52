@@ -1,6 +1,7 @@
 package com.edu.movie.data.source.remote.fetchjson
 
 import com.edu.movie.data.model.*
+import com.edu.movie.utils.Constant
 import com.edu.movie.utils.TypeModel
 import org.json.JSONObject
 
@@ -13,7 +14,8 @@ class ParseJsonToModel {
             MovieItem(
                 getInt(MovieEntry.ID),
                 getString(MovieEntry.TITLE),
-                getString(MovieEntry.IMAGE_URL),
+                if (getString(MovieEntry.IMAGE_URL) == Constant.NULL_STRING) null
+                else getString(MovieEntry.IMAGE_URL),
                 getDouble(MovieEntry.RATE)
             )
         }
@@ -23,7 +25,8 @@ class ParseJsonToModel {
         jsonObject?.run {
             ItemMovieSlider(
                 getInt(ItemMovieSliderEntry.ID),
-                getString(ItemMovieSliderEntry.IMAGE_URL)
+                if (getString(ItemMovieSliderEntry.IMAGE_URL) == Constant.NULL_STRING) null
+                else getString(ItemMovieSliderEntry.IMAGE_URL)
             )
         }
 
@@ -37,7 +40,7 @@ class ParseJsonToModel {
                     .getString(MoviesDetailsEntry.COUNTRY_NAME) else null
             val genres = parseJsonData.parseJson(
                 getJSONArray(MoviesDetailsEntry.LIST_GENRES).toString(),
-                TypeModel.GENRES
+                TypeModel.GENRES_DETAIL_MOVIE
             ) as MutableList<Genres>
             val companies = parseJsonData.parseJson(
                 getJSONArray(MoviesDetailsEntry.LIST_COMPANIES).toString(),
@@ -46,7 +49,8 @@ class ParseJsonToModel {
             MovieDetails(
                 getInt(MoviesDetailsEntry.ID),
                 getString(MoviesDetailsEntry.TITLE),
-                getString(MoviesDetailsEntry.IMAGE_URL),
+                if (getString(MoviesDetailsEntry.IMAGE_URL) == Constant.NULL_STRING) null
+                else getString(MoviesDetailsEntry.IMAGE_URL),
                 getDouble(MoviesDetailsEntry.RATE),
                 countryProduction,
                 getString(MoviesDetailsEntry.DESCRIPTION),
@@ -71,7 +75,8 @@ class ParseJsonToModel {
             Cast(
                 getInt(CastEntry.ID),
                 getString(CastEntry.NAME),
-                getString(CastEntry.IMAGE_URL)
+                if (getString(CastEntry.IMAGE_URL) == Constant.NULL_STRING) null
+                else getString(CastEntry.IMAGE_URL)
             )
         }
 
@@ -90,7 +95,8 @@ class ParseJsonToModel {
             Company(
                 getInt(CompanyEntry.ID),
                 getString(CompanyEntry.NAME),
-                getString(CompanyEntry.LOGO_URL)
+                if (getString(CompanyEntry.LOGO_URL) == Constant.NULL_STRING) null
+                else getString(CompanyEntry.LOGO_URL)
             )
         }
 }

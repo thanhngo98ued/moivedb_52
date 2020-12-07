@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dp_4"
+    android:background="@drawable/ic_button_genres">
+
+    <TextView
+        android:id="@+id/textViewGenresInMovie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:maxLines="1"
+        android:padding="@dimen/dp_4"
+        android:singleLine="true"
+        android:textSize="@dimen/sp_12" />
+</LinearLayout>
