@@ -29,11 +29,13 @@
             android:gravity="center"
             android:id="@+id/textMoreGenres"
             android:text="@string/more"
+            android:alpha="0.5"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/dp_4"
             android:textSize="@dimen/sp_12" />
 
         <ImageView
+            android:alpha="0.5"
             android:id="@+id/imageViewMoreGenres"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
