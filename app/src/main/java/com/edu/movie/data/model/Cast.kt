@@ -1,6 +1,10 @@
 package com.edu.movie.data.model
 
-data class Cast(val id: Int?, val name: String?, val imageUrl: String?)
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+data class Cast(val id: Int?, val name: String?, val imageUrl: String?) : Parcelable
 
 object CastEntry {
     const val LIST_CASTS = "cast"
